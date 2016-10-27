@@ -1,0 +1,1 @@
+add_executable(Seminar1 main.cpp)
