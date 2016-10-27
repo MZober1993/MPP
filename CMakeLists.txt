@@ -8,4 +8,3 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${CMAKE_BUILD_TY
 
 add_subdirectory(Seminar1)
 add_subdirectory(Seminar2)
-add_subdirectory(Trying)
