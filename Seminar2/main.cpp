@@ -27,6 +27,7 @@ double trapezoid(MPI::Intracomm world, long n, double a, double b) {
 int main(int argc, char **argv) {
     MPI::Init();
     MPI::Intracomm &world = MPI::COMM_WORLD;
+    int worldRank = world.Get_rank();
 
     double a = 0.0;
     double b = 1.0;
@@ -41,8 +42,9 @@ int main(int argc, char **argv) {
         n = atol(argv[1]);
     }
     integral = trapezoid(world, n, a, b);
-    MPI_Reduce(&integral, &total, 1, MPI_DOUBLE, MPI_SUM, ROOT, world);
-    if (MPI::COMM_WORLD.Get_rank() == ROOT) {
+    world.Reduce(&integral, &total, 1, MPI_DOUBLE, MPI_SUM, ROOT);
+
+    if (worldRank == ROOT) {
         std::cout << "total: " << total << std::endl;
     }
     MPI_Finalize();

@@ -3,8 +3,7 @@
 
 #include "mpi.h"
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {//TODO: rework this to c++
     int rank;		// Rang des Prozesses
     int p;		// Anzahl Prozesse
     int root;		// Master-Prozess
